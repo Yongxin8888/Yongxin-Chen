@@ -1,0 +1,3 @@
+#wirite parquet file in python with pandas
+df = pd.read_parquet('decorator_AutoWritingFunc.parquet')
+print(df)
