@@ -1,6 +1,6 @@
 # simple method to define decorator(func)
 def decorator(func):
-    def wrapper(*args, **kw):
+    def wrapper(*auto_writing, **kw):
         return func()
     return wrapper
     
@@ -9,19 +9,19 @@ def decorator(func):
 import time
 import functools
 
-class DelayFunc:
+class AutoWritingFunc:
     def __init__(self,  duration, func):
         self.duration = duration
         self.func = func
 
-    def __call__(self, *args, **kwargs):
+    def __call__(self, *auto_writing, **kwargs):
         print(f'Wait for {self.duration} seconds...')
         time.sleep(self.duration)
-        return self.func(*args, **kwargs)
+        return self.func(*auto_writing, **kwargs)
 
-    def eager_call(self, *args, **kwargs):
+    def eager_call(self, *auto_writing, **kwargs):
         print('Call without delay')
-        return self.func(*args, **kwargs)
+        return self.func(*auto_writing, **kwargs)
 
 def delay(duration):
     """
